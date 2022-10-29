@@ -1,16 +1,18 @@
 import Pokedex from "pokedex-promise-v2";
 import { useState } from "react";
 const P = new Pokedex();
-let search;
+// let url;
+// let name;
 
 const GetPokemon = () => {
   const [pokemon, pokedex] = useState("");
-  const [data, setData] = useState("Test");
+  const [data, setData] = useState({ img: "", name: "" });
   function infodex(e) {
     e.preventDefault();
     P.getPokemonByName(pokemon).then((res) => {
-      search = res.sprites.front_default;
-      setData(search);
+      const url = res.sprites.front_default;
+      const name = res.name;
+      setData((prev) => ({ ...prev, img: url, name: name }));
     });
   }
   return (
@@ -28,7 +30,8 @@ const GetPokemon = () => {
           Search
         </button>
       </form>
-      <img src={data} alt="" className="image" />
+      <img src={data.img} alt="" className="image" />
+      <p className="name">{data.name}</p>
     </div>
   );
 };
