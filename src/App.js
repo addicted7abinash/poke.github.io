@@ -1,3 +1,4 @@
+// import "bootstrap/dist/css/bootstrap.css";
 import GetPokemon from "./components/GetPokemon";
 import "./index.css";
 
