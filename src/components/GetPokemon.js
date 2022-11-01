@@ -1,8 +1,6 @@
 import Pokedex from "pokedex-promise-v2";
 import { useState, useEffect } from "react";
 const P = new Pokedex();
-// let url;
-// let name;
 
 const GetPokemon = () => {
   const [pokemon, pokedex] = useState("");
@@ -20,6 +18,7 @@ const GetPokemon = () => {
     e.preventDefault();
     P.getPokemonByName(pokemon)
       .then((res) => {
+        console.log(res);
         setData((prev) => ({
           ...prev,
           img: res.sprites.front_default,
@@ -34,9 +33,9 @@ const GetPokemon = () => {
       })
       .catch((error) => {
         console.error(error);
-        setData((prev) => ({
-          ...prev,
+        setData(() => ({
           name: "Please enter a valid name",
+          hp: 0,
         }));
       });
   }
@@ -63,6 +62,9 @@ const GetPokemon = () => {
     </tr>
   </tbody>`;
     }
+    return () => {
+      document.getElementById("table").innerHTML = "";
+    };
   }, [data]);
   return (
     <div>
