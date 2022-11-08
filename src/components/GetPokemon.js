@@ -1,9 +1,15 @@
 import Pokedex from "pokedex-promise-v2";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 const P = new Pokedex();
 
 const GetPokemon = () => {
   const [pokemon, pokedex] = useState("");
+  const navigate = useNavigate();
+
+  const toBattle = () => {
+    navigate("/battle", { state: pokemon });
+  };
   const [data, setData] = useState({
     img: "",
     name: "",
@@ -41,6 +47,7 @@ const GetPokemon = () => {
   }
   useEffect(() => {
     if (data.hp !== 0) {
+      console.log("running useEffect");
       document.getElementById("table").innerHTML = `<thead>
       <tr>
       <th>HP</th>
@@ -64,8 +71,10 @@ const GetPokemon = () => {
     }
     return () => {
       document.getElementById("table").innerHTML = "";
+      data.hp = 0;
     };
   }, [data]);
+
   return (
     <div>
       <form className="form">
@@ -84,6 +93,13 @@ const GetPokemon = () => {
       <img src={data.img} alt="" className="image" />
       <p className="name">{data.name}</p>
       <table className="table" id="table"></table>
+      <button
+        onClick={() => {
+          toBattle();
+        }}
+      >
+        Opponent
+      </button>
     </div>
   );
 };
