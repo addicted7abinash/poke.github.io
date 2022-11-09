@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(to right, #e099c4, #f5cdc3);
+  background: linear-gradient(to right, #cddadc, #6dcbe7);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 30px;
@@ -66,6 +66,7 @@ body {
   padding: 10px 10px 10px;
 }
 .table thead tr {
+  border: 2px solid #000000;
   background-color: #a599cd;
   color: #ffffff;
   text-align: left;
@@ -75,6 +76,20 @@ body {
   padding: 12px 15px;
 }
 .table tbody tr {
-  border-bottom: 1px solid #dddddd;
+  border: 2px solid #000000;
   background-color: #f3f3f3;
+}
+.btn {
+  justify-content: center;
+  display: flex;
+  width: 200px;
+  height: 50px;
+  margin: 15px auto;
+  font-size: 30px;
+  border-radius: 15px;
+  background: linear-gradient(to right, #8adb9c, #58e791);
+}
+.btn:hover {
+  background: linear-gradient(to right, #91e984, #62e758);
+  cursor: pointer;
 }

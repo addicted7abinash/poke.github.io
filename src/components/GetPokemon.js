@@ -5,6 +5,7 @@ const P = new Pokedex();
 
 const GetPokemon = () => {
   const [pokemon, pokedex] = useState("");
+  const [statflag, setStats] = useState(false);
   const navigate = useNavigate();
 
   const toBattle = () => {
@@ -47,30 +48,10 @@ const GetPokemon = () => {
   }
   useEffect(() => {
     if (data.hp !== 0) {
-      console.log("running useEffect");
-      document.getElementById("table").innerHTML = `<thead>
-      <tr>
-      <th>HP</th>
-      <th>Attack</th>
-      <th>Defense</th>
-      <th>Special Attack</th>
-      <th>Special Defense</th>
-      <th>Speed</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>${data.hp}</td>
-      <td>${data.attack}</td>
-      <td>${data.defense}</td>
-      <td>${data.special_attack}</td>
-      <td>${data.special_defense}</td>
-      <td>${data.speed}</td>
-    </tr>
-  </tbody>`;
+      setStats(true);
     }
     return () => {
-      document.getElementById("table").innerHTML = "";
+      setStats(false);
       data.hp = 0;
     };
   }, [data]);
@@ -92,13 +73,39 @@ const GetPokemon = () => {
       </form>
       <img src={data.img} alt="" className="image" />
       <p className="name">{data.name}</p>
-      <table className="table" id="table"></table>
+      <table
+        className="table"
+        id="table"
+        style={{ visibility: statflag ? "visible" : "hidden" }}
+      >
+        <thead>
+          <tr>
+            <th>HP</th>
+            <th>Attack</th>
+            <th>Defense</th>
+            <th>Special Attack</th>
+            <th>Special Defense</th>
+            <th>Speed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{data.hp}</td>
+            <td>{data.attack}</td>
+            <td>{data.defense}</td>
+            <td>{data.special_attack}</td>
+            <td>{data.special_defense}</td>
+            <td>{data.speed}</td>
+          </tr>
+        </tbody>
+      </table>
       <button
+        className="btn btn-primary"
         onClick={() => {
           toBattle();
         }}
       >
-        Opponent
+        Find!
       </button>
     </div>
   );
