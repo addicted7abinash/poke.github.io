@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 const P = new Pokedex();
 
 const GetPokemon = () => {
-  const [pokemon, pokedex] = useState("");
-  const [statflag, setStats] = useState(false);
+  const [pokemon, setPokemon] = useState("");
+  const [statflag, setStatflag] = useState(false);
   const navigate = useNavigate();
 
   const toBattle = () => {
-    navigate("/battle", { state: pokemon });
+    navigate("/battle", { state: { data } });
   };
   const [data, setData] = useState({
     img: "",
@@ -21,11 +21,10 @@ const GetPokemon = () => {
     special_defense: 0,
     speed: 0,
   });
-  function infodex(e) {
+  function getPokemon(e) {
     e.preventDefault();
     P.getPokemonByName(pokemon)
       .then((res) => {
-        console.log(res);
         setData((prev) => ({
           ...prev,
           img: res.sprites.front_default,
@@ -48,10 +47,10 @@ const GetPokemon = () => {
   }
   useEffect(() => {
     if (data.hp !== 0) {
-      setStats(true);
+      setStatflag(true);
     }
     return () => {
-      setStats(false);
+      setStatflag(false);
       data.hp = 0;
     };
   }, [data]);
@@ -64,10 +63,10 @@ const GetPokemon = () => {
           name="pokemon"
           placeholder="Pokemon search"
           value={pokemon}
-          onChange={(e) => pokedex(e.target.value)}
+          onChange={(e) => setPokemon(e.target.value)}
           className="input"
         />
-        <button onClick={infodex} className="button">
+        <button onClick={getPokemon} className="button">
           Search
         </button>
       </form>
