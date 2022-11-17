@@ -11,16 +11,17 @@ body {
 }
 .heading {
   margin: 0 auto;
-  width: 40%;
+  width: 250px;
 }
 .form {
-  width: 100%;
-  position: relative;
+  width: 700px;
+  margin-left: 140px;
+  margin-top: 20px;
   display: flex;
   padding: 10px 10px 10px;
 }
 .input {
-  width: 60%;
+  width: 100%;
   padding: 10px;
   border: 4px solid #010a06;
   border-radius: 10px 0 0 10px;
@@ -29,6 +30,7 @@ body {
   font-size: 20px;
   color: rgb(9, 51, 32);
   background: none;
+  justify-content: center;
 }
 .button {
   text-align: center;

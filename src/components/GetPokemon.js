@@ -99,12 +99,13 @@ const GetPokemon = () => {
         </tbody>
       </table>
       <button
-        className="btn btn-primary"
+        className="btn"
         onClick={() => {
           toBattle();
         }}
+        style={{ visibility: statflag ? "visible" : "hidden" }}
       >
-        Find!
+        Battle!
       </button>
     </div>
   );

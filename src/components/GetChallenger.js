@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Pokedex from "pokedex-promise-v2";
 
 const P = new Pokedex();
@@ -17,25 +17,30 @@ const GetChallenger = () => {
     special_defense: 0,
     speed: 0,
   });
-  P.getPokemonByName(random)
-    .then((res) => {
-      statflag = true;
-      setPokemon((prev) => ({
-        ...prev,
-        img: res.sprites.front_default,
-        name: res.name,
-        hp: res.stats[0].base_stat,
-        attack: res.stats[1].base_stat,
-        defense: res.stats[2].base_stat,
-        special_attack: res.stats[3].base_stat,
-        special_defense: res.stats[4].base_stat,
-        speed: res.stats[5].base_stat,
-      }));
-    })
-    .catch((error) => {
-      console.error(error);
-      statflag = false;
-    });
+
+  useEffect(() => {
+    P.getPokemonByName(random)
+      .then((res) => {
+        statflag = true;
+        console.log(res);
+        setPokemon((prev) => ({
+          ...prev,
+          img: res.sprites.front_default,
+          name: res.name,
+          hp: res.stats[0].base_stat,
+          attack: res.stats[1].base_stat,
+          defense: res.stats[2].base_stat,
+          special_attack: res.stats[3].base_stat,
+          special_defense: res.stats[4].base_stat,
+          speed: res.stats[5].base_stat,
+        }));
+      })
+      .catch((error) => {
+        console.error(error);
+        statflag = false;
+      });
+  }, []);
+
   const poke = useLocation();
   return (
     <div className="battle">
