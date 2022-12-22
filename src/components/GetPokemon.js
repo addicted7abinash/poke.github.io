@@ -20,6 +20,7 @@ const GetPokemon = () => {
     special_attack: 0,
     special_defense: 0,
     speed: 0,
+    moves: [],
   });
   function getPokemon(e) {
     e.preventDefault();
@@ -35,6 +36,7 @@ const GetPokemon = () => {
           special_attack: res.stats[3].base_stat,
           special_defense: res.stats[4].base_stat,
           speed: res.stats[5].base_stat,
+          moves: res.moves,
         }));
       })
       .catch((error) => {

@@ -89,10 +89,10 @@ body {
   margin: 15px auto;
   font-size: 30px;
   border-radius: 15px;
-  background: linear-gradient(to right, #8adb9c, #58e791);
+  background: linear-gradient(to right, #db8ab7, #bc58e7);
 }
 .btn:hover {
-  background: linear-gradient(to right, #91e984, #62e758);
+  background: linear-gradient(to right, #8884e9, #cd58e7);
   cursor: pointer;
 }
 .battle {
