@@ -24,7 +24,7 @@ const GetPokemon = () => {
   });
   function getPokemon(e) {
     e.preventDefault();
-    P.getPokemonByName(pokemon)
+    P.getPokemonByName(pokemon.toLowerCase())
       .then((res) => {
         setData((prev) => ({
           ...prev,
