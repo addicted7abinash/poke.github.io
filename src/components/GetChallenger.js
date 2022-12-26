@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Pokedex from "pokedex-promise-v2";
-
+import Moves from "./Moves";
 const P = new Pokedex();
 const random = Math.floor(Math.random() * 600) + 1;
 let statflag = false;
@@ -18,7 +18,7 @@ const GetChallenger = () => {
     speed: 0,
     moves: [],
   });
-
+  const poke = useLocation();
   useEffect(() => {
     P.getPokemonByName(random)
       .then((res) => {
@@ -42,7 +42,6 @@ const GetChallenger = () => {
         statflag = false;
       });
   }, []);
-  const poke = useLocation();
   return (
     <div>
       <div className="battle">
@@ -107,6 +106,7 @@ const GetChallenger = () => {
           </table>
         </div>
       </div>
+      <Moves opp={opponent.name} player={poke.state.data.name} />
     </div>
   );
 };
