@@ -113,7 +113,8 @@ const Moves = (data) => {
   return (
     <div>
       <div className="log" id="logs">
-        The battle is starting...
+        The battle is starting. Select a move to play. The damage is loosely
+        based on your attack and opponent's defense. Have fun!
       </div>
       <div className="moves">
         Your moves are:

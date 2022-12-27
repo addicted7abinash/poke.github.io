@@ -4,8 +4,9 @@
 }
 
 body {
-  background: linear-gradient(to right, #cddadc, #6dcbe7);
+  background: radial-gradient(at center, #afd5db, #9196dc);
   font-family: pokemon;
+  background-size: cover;
 }
 .wrapper {
   width: 1000px;
