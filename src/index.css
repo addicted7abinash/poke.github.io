@@ -1,11 +1,8 @@
-@font-face {
-  font-family: pokemon;
-  src: url("C:\Users\abina\Downloads\Compressed\Press_Start_2P\PressStart2P-Regular.ttf");
-}
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P");
 
 body {
   background: radial-gradient(at center, #afd5db, #9196dc);
-  font-family: pokemon;
+  font-family: "Press Start 2P";
   background-size: cover;
 }
 .wrapper {
@@ -24,7 +21,7 @@ body {
   margin-top: 20px;
   display: flex;
   padding: 10px 10px 10px;
-  font-family: pokemon;
+  font-family: "Press Start 2P";
 }
 .input {
   width: 100%;
@@ -41,13 +38,14 @@ body {
 .button {
   text-align: center;
   height: 58px;
-  width: 80px;
+  width: 150px;
   outline: none;
   cursor: pointer;
   border: 4px solid #111d5e;
   border-radius: 0 10px 10px 0;
   border-left: none;
   background: none;
+  font-family: "Press Start 2P";
   font-size: 20px;
   color: rgb(4, 37, 43);
   border-left: 4px solid #111d5e;
@@ -67,7 +65,7 @@ body {
 .table {
   border-collapse: collapse;
   font-size: 0.58em;
-  font-family: pokemon;
+  font-family: "Press Start 2P";
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   margin: 0 auto;
   width: 400px;
@@ -92,8 +90,10 @@ body {
   display: flex;
   width: 200px;
   height: 50px;
+  padding: 10px;
   margin: 15px auto;
-  font-size: 30px;
+  font-family: "Press Start 2P";
+  font-size: 20px;
   border-radius: 15px;
   background: linear-gradient(to right, #db8ab7, #bc58e7);
 }
@@ -115,7 +115,7 @@ body {
   padding: 13px;
   border-radius: 0.25em;
   font-size: 0.8em;
-  font-family: pokemon;
+  font-family: "Press Start 2P";
   text-align: center;
   white-space: nowrap;
   background: linear-gradient(to right, #db8ab7, #bc58e7);
