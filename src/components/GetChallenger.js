@@ -43,7 +43,7 @@ const GetChallenger = () => {
       });
   }, []);
   return (
-    <div>
+    <div className="battle-container">
       <div className="battle">
         <div>
           <p className="name">You are {poke.state.data.name}</p>

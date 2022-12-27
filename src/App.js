@@ -8,7 +8,7 @@ function App() {
     <>
       <Router>
         <div className="wrapper">
-          <h1 className="heading">Pokedex</h1>
+          <h1 className="heading">PokeClash</h1>
           <Routes>
             <Route path="/battle" element={<GetChallenger />} />
             <Route path="/" element={<GetPokemon />} />

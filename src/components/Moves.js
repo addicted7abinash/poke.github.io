@@ -8,7 +8,7 @@ const Moves = (data) => {
   let logElement = document.getElementById("logs");
 
   function log(attacker, move, damage, health) {
-    let logText = `${attacker} used ${move} and did ${damage} points of damage\n
+    let logText = `${attacker} used ${move} and did ${damage} points of damage.\n
     Remaining health: ${health - damage}`;
     loglines.push(logText);
     if (loglines.length > 2) {

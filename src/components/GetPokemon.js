@@ -59,6 +59,7 @@ const GetPokemon = () => {
 
   return (
     <div>
+      <p className="ins">Enter the name of a pokemon and hit battle!</p>
       <form className="form">
         <input
           type="text"
