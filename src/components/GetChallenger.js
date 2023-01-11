@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Pokedex from "pokedex-promise-v2";
 import Moves from "./Moves";
@@ -7,6 +7,7 @@ const random = Math.floor(Math.random() * 600) + 1;
 let statflag = false;
 
 const GetChallenger = () => {
+  const navigate = useNavigate();
   const [opponent, setPokemon] = useState({
     img: "",
     name: "",
@@ -19,6 +20,9 @@ const GetChallenger = () => {
     moves: [],
   });
   const poke = useLocation();
+  const toHome = () => {
+    navigate("/");
+  };
   useEffect(() => {
     P.getPokemonByName(random)
       .then((res) => {
@@ -107,6 +111,15 @@ const GetChallenger = () => {
         </div>
       </div>
       <Moves opp={opponent.name} player={poke.state.data.name} />
+
+      <button
+        className="btn"
+        onClick={() => {
+          toHome();
+        }}
+      >
+        Home
+      </button>
     </div>
   );
 };
